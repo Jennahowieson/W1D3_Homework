@@ -11,7 +11,7 @@ def uncompleted_tasks(list):
     uncompleted = []
     for task in list:
         if task ["completed"] == False:
-            uncompleted.append(task)
+            uncompleted.append(task["description"])
     return uncompleted
 print (uncompleted_tasks(tasks))
 
@@ -22,7 +22,7 @@ def completed_tasks(list):
 
     for task in list:
         if task ["completed"] == True:
-            completed.append(task)
+            completed.append(task["description"])
     return completed
 print (completed_tasks(tasks))
 
@@ -47,13 +47,21 @@ print (task_time(tasks,25))
 
 
 # # Print any task with a given description
+# def task_desc(list, job):
+#     results = []
+#     for task in list: 
+#         if task["description"] == job:
+#             results.append(task)
+#     return results
+# print (task_desc(tasks, "Make Dinner"))
+
 def task_desc(list, job):
-    results = []
     for task in list: 
         if task["description"] == job:
-            results.append(task)
-    return results
-print (task_desc(tasks, "Make Dinner"))
+            return task["description"]
+        else:
+            return "nothing"
+print (task_desc(tasks, "Feed Cat"))
     
 # Extension
 # Given a description update that task to mark it as complete.
